@@ -42,7 +42,7 @@ var requestHandler = function(request, response) {
 
 var server = http.createServer(requestHandler);
 server.listen(port);
-console.log('Server running on localhost...');
+console.log('Server now running on localhost:8080...');
 
 fs.readFile('listings.json', 'utf8', function(err, data) {
    if(err){
