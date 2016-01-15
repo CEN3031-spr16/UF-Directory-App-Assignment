@@ -1,7 +1,11 @@
 #searchBar {
   margin: 15px 10px;
 }
-
+#removeButton {
+  color:blue;
+  border: 2px solid;
+  border-radius: 25px;
+}
 .tableWrapper {
   max-height: 400px;
   overflow: auto;
