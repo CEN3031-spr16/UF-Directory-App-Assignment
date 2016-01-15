@@ -48,6 +48,10 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       $scope.listings.splice(index, 1);
     };
 
+    //When this gets called, set the undefined 'detailedInfo' for the item
+    $scope.itemDetails = function(index) {
+      $scope.detailedInfo = $scope.listings[index];
+    };
 
   }
 ]);

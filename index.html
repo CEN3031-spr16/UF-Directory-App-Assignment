@@ -9,7 +9,8 @@
       <div class="row">
         <h1>UF Directory App</h1>
       </div>
-      <div class="row" ng-controller="ListingsController">
+      <!--ng-cloak prevents {{ }} from flashing on render-->
+      <div class="row" ng-controller="ListingsController" ng-cloak>
         <div class="col-md-6">
           <div class="input-group" id="searchBar">
             <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
@@ -31,16 +32,17 @@
               <!--============================================================================-->
               <!--Repeat for each entry in the listings array
               On click, call showDetails function and pass the index of the object.-->
-              <tr ng-repeat="listing in listings | filter:searchText" ng-click="showDetails($index)">
+              <tr ng-repeat="listing in listings | filter:searchText" ng-click="itemDetails($index)">
                 <td >{{listing.code}}</td>
                 <td>{{listing.name}}</td>
                 <!--Adds button to delete each entry.
                 On click, call deleteListing function and pass the index of the object.-->
                 <td><button class="btn btn-danger" ng-click="deleteListing($index)">delete</button></td>
               </tr>
-              <!--============================================================================-->
             </table>
           </div>
+        <!--==================================================================================-->
+
 
         <!--==================================================================================-->
         </br>
@@ -78,23 +80,30 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
+        </div>
           <!--=================================================================================-->
 
 
 
+          <!--=================================================================================-->
+            <div class="col-md-6">
+              <div class="jumbotron">
 
-        </div>
-        <div class="col-md-6">
-          <div class="jumbotron">
-            <h2>Detailed Information</h2>
-            <!--
+                <h2>Detailed Information</h2>
+                <div class="well well-sm">{{detailedInfo.code}}</div>
+                <div class="well well-sm">{{detailedInfo.name}}</div>
+                <div class="well well-sm">{{detailedInfo.coordinates.latitude}}</div>
+                <div class="well well-sm">{{detailedInfo.coordinates.longitude}}</div>
+                <div class="well well-sm">{{detailedInfo.address}}</div>
 
-              Include a way to display detailed information about an individual listing:
-                   * consider how to use ng-click within the the table to implement this feature
 
-             -->
-          </div>
-        </div>
+              </div>
+            </div>
+            <!--=================================================================================-->
+
+
+
+
       </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
