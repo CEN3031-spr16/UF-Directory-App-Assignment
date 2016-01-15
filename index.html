@@ -11,10 +11,13 @@
       </div>
       <div class="row" ng-controller="ListingsController">
         <div class="col-md-6">
-          <div class="input-group" id="searchBar">
-            <!-- 
 
-                Implement a way to filter through listings using the search bar 
+          <div class="input-group" id="searchBar">
+
+
+            <!--
+
+                Implement a way to filter through listings using the search bar
 
               -->
             <span class="input-group-addon" id="sizing-addon1"><span class="glyphicon glyphicon-search"></span></span>
@@ -25,27 +28,41 @@
               <tr>
                 <th>Code</th>
                 <th>Building Name</th>
-                <th></th>
               </tr>
-              <!-- 
+              <tr ng-repeat="list in listings" ng-click="showDetails($index)">
+                <div>
+                  <td>{{list.code}}</td>
+                  <td>{{list.name}}</td>
+                </div>
+
+              </tr>
+              <!--
+                  ^
+                  |
 
                   Fill in the rest of the table:
                       * populate the rows with the code and name of each listing
                       * include a way to remove individual listings
 
-                --> 
+                -->
             </table>
           </div>
-          <!-- 
+          <!--
 
-              Write an HTML form that adds new listings to the directory 
+              Write an HTML form that adds new listings to the directory
 
             -->
         </div>
         <div class="col-md-6">
           <div class="jumbotron">
             <h2>Detailed Information</h2>
-            <!-- 
+            <li>{{newItem.code}}</li>
+            <li>{{newItem.name}}</li>
+            <li>{{newItem.address}}</li>
+            <li>{{newItem.coordinates.latitude}}</li>
+            <li>{{newItem.coordinates.longitude}}</li>
+
+            <!--
 
               Include a way to display detailed information about an individual listing:
                    * consider how to use ng-click within the the table to implement this feature
