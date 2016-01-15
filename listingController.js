@@ -12,8 +12,9 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
          $scope.listings.push($scope.newListing);
          $scope.newListing = '';
      };
-    $scope.deleteListing = function(index) {
-        $scope.listings.splice(index, 1);
+    $scope.deleteListing = function(building) {
+          x = $scope.listings.indexOf(building);
+          $scope.listings.splice(x, 1);
     };
     $scope.showDetails = function(building) {
         $scope.detailedInfo = building;
