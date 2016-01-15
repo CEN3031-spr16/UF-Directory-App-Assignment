@@ -9,15 +9,14 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
 
      */
      $scope.addListing = function() {
-         $scope.lisings.push($scope.newItem);
-         $scope.newItem = '';
-
+         $scope.listings.push($scope.newListing);
+         $scope.newListing = '';
      };
     $scope.deleteListing = function(index) {
         $scope.listings.splice(index, 1);
     };
-    $scope.showDetails = function(index) {
-        $scope.newItem = $scope.listings[index];
+    $scope.showDetails = function(building) {
+        $scope.detailedInfo = building;
     };
   }
 ]);

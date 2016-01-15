@@ -29,12 +29,11 @@
                 <th>Code</th>
                 <th>Building Name</th>
               </tr>
-              <tr ng-repeat="list in listings | filter:query" ng-click="showDetails($index)">
+              <tr ng-repeat="building in listings | filter:query" ng-click="showDetails(building)">
                 <div>
-                  <td>{{list.code}}</td>
-                  <td>{{list.name}}</td>
+                  <td>{{building.code}}</td>
+                  <td>{{building.name}}</td>
                 </div>
-
               </tr>
               <!--
                   DONE
@@ -46,23 +45,18 @@
             </table>
           </div>
 
-          <!--
-
-              Write an HTML form that adds new listings to the directory
-
-            -->
         </div>
         <div class="col-md-6">
           <div class="jumbotron">
             <h4>Detailed Information</h4>
-            <h3 ng-show="newItem.name">{{newItem.name}}</h3>
+            <h3 ng-show="detailedInfo.name">{{detailedInfo.name}}</h3>
             <ul>
-              <li ng-show="newItem.code"> Building Code: {{newItem.code}}</li>
-              <li ng-show="newItem.address">Address: {{newItem.address}}</li>
-              <li ng-show="newItem.coordinates.latitude"> Coordinates:</li>
+              <li ng-show="detailedInfo.code"> Building Code: {{detailedInfo.code}}</li>
+              <li ng-show="detailedInfo.address">Address: {{detailedInfo.address}}</li>
+              <li ng-show="detailedInfo.coordinates.latitude"> Coordinates:</li>
                 <ul>
-                  <li ng-show="newItem.coordinates.latitude">Latitude: {{newItem.coordinates.latitude}}</li>
-                  <li ng-show="newItem.coordinates.longitude"> {{newItem.coordinates.longitude}}</li>
+                  <li ng-show="detailedInfo.coordinates.latitude">Latitude: {{detailedInfo.coordinates.latitude}}</li>
+                  <li ng-show="detailedInfo.coordinates.longitude"> {{detailedInfo.coordinates.longitude}}</li>
                 </ul>
             </ul>
 
@@ -70,15 +64,52 @@
             DONE
               Include a way to display detailed information about an individual listing:
                    * consider how to use ng-click within the the table to implement this feature
-                   <p>{{newItem}}</p>
-
              -->
           </div>
 
-          <div>
-            <h3>Add Item Form</h3>
-            <form name="addForm">
+                    <!--
 
+                        Write an HTML form that adds new listings to the directory
+
+                      -->
+
+          <div ng-controller="ListingsController" class="jumbotron">
+
+            <h3>Add Item Form</h3>
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label class="col-sm-3">Bulding Name</label>
+                <div class="col-sm-4">
+                  <input type="text" ng-model="newListing.name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3">Bulding Code</label>
+                <div class="col-sm-4">
+                  <input type="text" ng-model="newListing.code">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3">Address</label>
+                <div class="col-sm-4">
+                  <input type="text" ng-model="newListing.address">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3">Coordinates</label>
+                <div class="col-sm-4">
+                  <input type="text" ng-model="newListing.coordinates.latitude">
+                  <input type="text" ng-model="newListing.coordinates.longitude">
+                </div>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox">
+                  I agree with the terms to add a listing
+                  <button ng-click="addListing()">Add Listing</button>
+                </label>
+              </div>
+            </form>
           </div>
         </div>
       </div>
