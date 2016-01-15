@@ -37,7 +37,7 @@
                 <td>{{listing.name}}</td>
                 <!--Adds button to delete each entry.
                 On click, call deleteListing function and pass the index of the object.-->
-                <td><button class="btn btn-danger" ng-click="deleteListing($index)">delete</button></td>
+                <td><button class="btn btn-danger" ng-click="deleteItem($index)">delete</button></td>
               </tr>
             </table>
           </div>
@@ -52,7 +52,7 @@
         <div class="row">
           <h1>Add New Item</h1>
         </div>
-          <form ng-submit="addListing()">
+          <form ng-submit="addItem()">
             <!--Use bootstraps form-group class
             "The ngModel directive binds an input,select, textarea (or custom form control)
             to a property on the scope using NgModelController, which is created and exposed by
