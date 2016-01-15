@@ -1,3 +1,47 @@
+
+body {
+  /*background: linear-gradient(#6c9ac3,#FFFFFF);*/
+  //background: linear-gradient(#FFFFFF,#6c9ac3);
+  background: #FFFFFF;
+  font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+}
+
+.x:hover{
+
+}
+
+.x{
+  padding:30px;
+}
+
+td:hover {
+
+}
+
+.container{
+  height:100vh;
+  background-color:#FFFFFF;
+  box-shadow: 0px 20px 20px 20px rgba(0, 0, 0, 0.5);
+}
+
+.header {
+  padding: 14px;
+  border-top: 1px solid #333333;
+  border-bottom: 3px solid #FF4A00;
+  box-shadow: 0px 5px 8px 3px rgba(0, 0, 0, 0.25);
+  /* background: linear-gradient(#051c62,#051c62); */
+  /* background: linear-gradient(#051c62,#6c9ac3); */
+  background: linear-gradient(#051c62,#051c62);
+  font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+}
+
+.header h1 {
+  font-size: 325%;
+  text-align: center;
+  color: #EFEFEF;
+  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 3px 3px 5px black;
+}
+
 #searchBar {
   margin: 15px 10px;
 }
