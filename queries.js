@@ -1,4 +1,10 @@
 /* Fill out these functions using Mongoose queries*/
+var config = require('./config'),
+    mongoose = require('mongoose'),
+    Listings = require('./ListingSchema.js');
+
+mongoose.connect(config.db.uri);
+
 
 var findLibraryWest = function() {
   Listings.find({ name: 'Library West' }, function(err, listing) {
@@ -12,14 +18,10 @@ var findLibraryWest = function() {
    */
 };
 var removeCable = function() {
-  Listings.find({ code: 'CABL'}, function(err, listing) {
+  Listings.findOneAndRemove({ code: 'CABL'}, function(err, listing) {
     if (err) throw err;
 
-    listing.remove(function(err) {
-      if(err) throw err;
-
-      console.log(listing);
-    })
+    console.log(listing);
   });
   /*
     Find the document with the code 'CABL'. This cooresponds with courses that can only be viewed 
@@ -28,7 +30,7 @@ var removeCable = function() {
    */
 };
 var updatePhelpsMemorial = function() {
-  Listings.findOneAndUpdate({ code: 'PHL' }, { address: '102 Phelps Lab, Gainesville, FL 32611'}, funtion(err, listing) {
+  Listings.findOneAndUpdate({ code: 'PHL' }, { address: '102 Phelps Lab, Gainesville, FL 32611'}, function(err, listing) {
     if (err) throw err;
 
     console.log(listing);
@@ -44,7 +46,7 @@ var retrieveAllListings = function() {
     if (err) throw err;
 
     console.log(listing);
-  }
+  });
   /* 
     Retrieve all listings in the database, and log them to the console. 
    */
