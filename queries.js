@@ -21,7 +21,7 @@ var removeCable = function() {
   Listings.findOneAndRemove({ code: 'CABL'}, function(err, listing) {
     if (err) throw err;
 
-    console.log('CABL deleted');
+    console.log(listing);
   });
   /*
     Find the document with the code 'CABL'. This cooresponds with courses that can only be viewed 
