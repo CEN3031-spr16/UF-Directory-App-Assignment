@@ -14,14 +14,6 @@ var requestHandler = function(request, response) {
 	// ex: access with parsedUrl.pathname
 	var parsedUrl = url.parse(request.url);
 
-	/*
-	Your request handler should send listingData in the JSON format if a GET request
-	is sent to the '/listings' path. Otherwise, it should send a 404 error.
-
-	HINT: explore the request object and its properties
-	http://stackoverflow.com/questions/17251553/nodejs-request-object-documentation
-	*/
-
 	if (parsedUrl.pathname == '/listings'){
 
 		// Respond with a 200 status for standard response with no issues
@@ -49,10 +41,6 @@ server = http.createServer(requestHandler);
 
 // Reads the json file into memory
 fs.readFile('listings.json', 'utf8', function(err, data) {
-	/*
-	This callback function should save the data in the listingData variable,
-	then start the server.
-	*/
 
 	listingsData = data;
 
